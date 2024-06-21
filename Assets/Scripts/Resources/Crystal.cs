@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Crystal : MonoBehaviour
 {
+    [SerializeField] private float _offsetY;
+
     private bool _isAssigned;
     private bool _isTransporting;
 
@@ -17,10 +19,19 @@ public class Crystal : MonoBehaviour
     }
     private void Update()
     {
+        Vector3 trunkPosition = new();
+
         if (_isTransporting == false || _bot == null)
+        {
             return;
+        }
         else
-            transform.position = _bot.position;
+        {
+            trunkPosition = _bot.position;
+            trunkPosition.y = _offsetY;
+
+            transform.position = trunkPosition;
+        }
     }
 
     public void Assign()
