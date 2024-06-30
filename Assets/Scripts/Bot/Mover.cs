@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent (typeof(Rigidbody))]
 public class Mover : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 5f;
